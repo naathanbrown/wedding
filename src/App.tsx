@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <p> your guest type is {userType}</p>
     </div>
   );
 }
