@@ -40,7 +40,7 @@ export const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: "#04913a" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
