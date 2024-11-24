@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
-import "./App.css";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "../../components/navbar";
+import "./Home.css";
 
-function App() {
+export const Home = () => {
   let queryStringParam = window.location.href.split("guest=")[1];
 
   if (queryStringParam != "all") {
@@ -17,6 +17,6 @@ function App() {
       <p> your guest type is {userType}</p>
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
