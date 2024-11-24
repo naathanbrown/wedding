@@ -29,7 +29,7 @@ export const RSVP = () => {
       {userType === "all" ? (
         <AllRsvp updateDisplayMessage={updateDisplayMessage} />
       ) : (
-        <ReceptionRsvp />
+        <ReceptionRsvp updateDisplayMessage={updateDisplayMessage} />
       )}
     </div>
   );

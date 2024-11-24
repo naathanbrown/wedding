@@ -8,7 +8,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-export const ReceptionRsvp = () => {
+//@ts-ignore
+export const ReceptionRsvp = ({ updateDisplayMessage }) => {
   const defaultFromFields = { fullName: "", songRequest: "" };
   const [formFields, setFormFields] = useState([defaultFromFields]);
 
