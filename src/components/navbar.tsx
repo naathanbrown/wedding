@@ -11,14 +11,31 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { createSearchParams, useNavigate } from "react-router";
 
 export const Navbar = () => {
-  const pages = ["The Day", "Rutland", "Dovecote"];
+  const navigate = useNavigate();
+  const userType = localStorage.getItem("guest_type");
+  const pages = [
+    { name: "The Day", path: "/" },
+    { name: "RSVP", path: "/rsvp" },
+    { name: "Rutland", path: "/rutland" },
+    { name: "Dovecote", path: "/dovecote" },
+  ];
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const handleNavigate = (path: string) => {
+    navigate({
+      pathname: path,
+      search: createSearchParams({
+        guest: userType!,
+      }).toString(),
+    });
     setAnchorElNav(null);
   };
 
@@ -57,8 +74,13 @@ export const Navbar = () => {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                <MenuItem
+                  key={page.name}
+                  onClick={() => handleNavigate(page.path)}
+                >
+                  <Typography sx={{ textAlign: "center" }}>
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -66,11 +88,11 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={() => handleNavigate(page.path)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

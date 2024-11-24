@@ -1,15 +1,8 @@
-import { createContext, useContext } from "react";
 import { Navbar } from "../../components/navbar";
 import "./Home.css";
 
 export const Home = () => {
-  let queryStringParam = window.location.href.split("guest=")[1];
-
-  if (queryStringParam != "all") {
-    queryStringParam = "reception";
-  }
-  const userTypeContext = createContext(queryStringParam);
-  const userType = useContext(userTypeContext);
+  const userType = localStorage.getItem("guest_type");
 
   return (
     <div className="App">
