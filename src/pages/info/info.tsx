@@ -49,8 +49,8 @@ export const Info = () => {
         )}
         <h2>Evening Food</h2>
         <p>
-          The food in the evening being served is a local pizza van. There will
-          be a steady supply that you can help yourself too at any point all
+          The food in the evening being served is from a local pizza van. There
+          will be a steady supply that you can help yourself to at any point all
           evening.
         </p>
         <h2>Gifts</h2>
