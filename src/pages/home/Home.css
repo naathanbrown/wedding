@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "QT Basker";
+  src: url("../../../public/fonts/QTBasker.otf");
+}
+
+@font-face {
+  font-family: "Indiana Signature";
+  src: url("../../../public/fonts/Indiana\ Signature\ Regular.otf");
+}
+
+
+#top-line {
+  color: green;
+  font-family: 'QT Basker';
+}
+
+#middle-line {
+  color: green;
+  font-family: 'Indiana Signature';
+}
+
+#bottom-line {
+  color: green;
+  font-family: 'QT Basker';
+}
+
+#bottom-line-link {
+  color: green;
+  font-family: 'QT Basker';
+  font-size: xx-large;
+}
+
+.image-container img{
+  width: 100%;
+}
