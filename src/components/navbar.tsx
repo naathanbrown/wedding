@@ -17,7 +17,8 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const userType = localStorage.getItem("guest_type");
   const pages = [
-    { name: "The Day", path: "/" },
+    { name: "Home", path: "/" },
+    { name: "General Information", path: "/info" },
     { name: "RSVP", path: "/rsvp" },
     { name: "Rutland", path: "/rutland" },
     { name: "Dovecote", path: "/dovecote" },
@@ -44,7 +45,7 @@ export const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Samantha and Nathan's Wedding
+            Samantha and Nathan's Wedding &#127804;
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton

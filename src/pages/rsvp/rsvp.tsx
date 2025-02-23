@@ -17,6 +17,9 @@ export const RSVP = () => {
   return (
     <div className="App">
       <Navbar />
+      <div className="image-container">
+        <img id="header-image" src="floral_header4.jpg" alt="flowers" />
+      </div>
       {displayMessage === "success" && (
         <Alert severity="success">
           Your RSVP was successful, we look forward to seeing you on the day!
@@ -29,7 +32,7 @@ export const RSVP = () => {
         </Alert>
       )}
       {!loading && (
-        <div>
+        <div id="rsvp-container">
           {userType === "all" ? (
             <AllRsvp
               updateDisplayMessage={updateDisplayMessage}

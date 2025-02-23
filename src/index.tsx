@@ -1,8 +1,11 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
+import Dovecote from "./pages/dovecote/dovecote";
 import Home from "./pages/home/Home";
+import Info from "./pages/info/info";
 import RSVP from "./pages/rsvp/rsvp";
+import Rutland from "./pages/rutland/rutland";
 import reportWebVitals from "./reportWebVitals";
 
 let queryStringParam = window.location.href.split("guest=")[1];
@@ -20,7 +23,10 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/info" element={<Info />} />
       <Route path="/rsvp" element={<RSVP />} />
+      <Route path="/dovecote" element={<Dovecote />} />
+      <Route path="/rutland" element={<Rutland />} />
     </Routes>
   </BrowserRouter>
 );
