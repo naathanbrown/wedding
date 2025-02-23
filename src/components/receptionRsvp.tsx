@@ -4,6 +4,8 @@ import {
   Card,
   CardActions,
   CardContent,
+  Checkbox,
+  FormControlLabel,
   TextField,
 } from "@mui/material";
 import { useState } from "react";
@@ -14,13 +16,17 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
     fullName: "",
     songRequest: "",
     dietaryRequirements: "",
+    attending: false,
   };
   const [formFields, setFormFields] = useState([defaultFromFields]);
 
   const handleFormChange = (event: any, index: number) => {
     let data = [...formFields];
     //@ts-ignore
-    data[index][event.target.name] = event.target.value;
+    data[index][event.target.name] =
+      event.target.name === "attending"
+        ? event.target.checked
+        : event.target.value;
     setFormFields(data);
   };
 
@@ -29,6 +35,7 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
       fullName: "",
       songRequest: "",
       dietaryRequirements: "",
+      attending: false,
     };
 
     setFormFields([...formFields, object]);
@@ -62,7 +69,13 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
           return field.dietaryRequirements;
         })
         .toString(),
+      attending: formFields
+        .map((field) => {
+          return field.attending;
+        })
+        .toString(),
     };
+    console.log(templateParams);
     emailjs
       .send("service_9vpwvcw", "template_ev851q6", templateParams, {
         publicKey: "Sgl7tZSNk6hEXI8J-",
@@ -106,6 +119,17 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
               <div key={index} style={{ margin: "5%" }}>
                 <Card>
                   <h3>Guest {index + 1}</h3>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name="attending"
+                        onChange={(event) => handleFormChange(event, index)}
+                        value={form.attending}
+                      />
+                    }
+                    label="Attending"
+                  />
+                  <br />
                   <TextField
                     name="fullName"
                     placeholder="Name"

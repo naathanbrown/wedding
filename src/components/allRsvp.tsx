@@ -4,6 +4,10 @@ import {
   Card,
   CardActions,
   CardContent,
+  Checkbox,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
   TextField,
 } from "@mui/material";
 import { useState } from "react";
@@ -18,13 +22,18 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
     dessert: "",
     songRequest: "",
     dietaryRequirements: "",
+    attending: false,
   };
   const [formFields, setFormFields] = useState([defaultFromFields]);
 
   const handleFormChange = (event: any, index: number) => {
     let data = [...formFields];
+    console.log(data);
     //@ts-ignore
-    data[index][event.target.name] = event.target.value;
+    data[index][event.target.name] =
+      event.target.name === "attending"
+        ? event.target.checked
+        : event.target.value;
     setFormFields(data);
   };
 
@@ -36,6 +45,7 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
       dessert: "",
       songRequest: "",
       dietaryRequirements: "",
+      attending: false,
     };
 
     setFormFields([...formFields, object]);
@@ -84,6 +94,11 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
           return field.dietaryRequirements;
         })
         .toString(),
+      attending: formFields
+        .map((field) => {
+          return field.attending;
+        })
+        .toString(),
     };
     emailjs
       .send("service_9vpwvcw", "template_wr8dd4n", templateParams, {
@@ -124,36 +139,100 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
               <div key={index} style={{ margin: "5%" }}>
                 <Card>
                   <h3>Guest {index + 1}</h3>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name="attending"
+                        onChange={(event) => handleFormChange(event, index)}
+                        value={form.attending}
+                      />
+                    }
+                    label="Attending"
+                  />
+                  <br />
                   <TextField
                     name="fullName"
                     placeholder="Name"
                     onChange={(event) => handleFormChange(event, index)}
                     value={form.fullName}
                   />
-                  <TextField
+                  <p>Starter</p>
+                  <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
                     name="starter"
-                    placeholder="Starter"
-                    onChange={(event) => handleFormChange(event, index)}
                     value={form.starter}
-                  />
-                  <TextField
+                    onChange={(event) => handleFormChange(event, index)}
+                  >
+                    <FormControlLabel
+                      value="Soup"
+                      control={<Radio />}
+                      label="Tomato and Basil Soup with Crusty Bread (GF)"
+                    />
+                    <FormControlLabel
+                      value="Salmon Salad"
+                      control={<Radio />}
+                      label="Smoked Salmon Salad (GF)"
+                    />
+                    <FormControlLabel
+                      value="Halloumi"
+                      control={<Radio />}
+                      label="Grilled Halloumi Fries with Rocket and Sweet Chilli Sauce (GF)"
+                    />
+                  </RadioGroup>
+                  <p>Main</p>
+                  <p>All served with roast potatoes and seasonal vegetables</p>
+                  <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
                     name="main"
-                    placeholder="Main"
-                    onChange={(event) => handleFormChange(event, index)}
                     value={form.main}
-                  />
-                  <TextField
-                    name="dessert"
-                    placeholder="Dessert"
                     onChange={(event) => handleFormChange(event, index)}
+                  >
+                    <FormControlLabel
+                      value="Beef"
+                      control={<Radio />}
+                      label="Roast Beef with Yorkshire Pudding (can be GF on req)"
+                    />
+                    <FormControlLabel
+                      value="Salmon"
+                      control={<Radio />}
+                      label="Herb Crusted Salmon (GF)"
+                    />
+                    <FormControlLabel
+                      value="lasagna"
+                      control={<Radio />}
+                      label="Vegetarian Lasagna"
+                    />
+                  </RadioGroup>
+                  <p>Dessert</p>
+                  <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="dessert"
                     value={form.dessert}
-                  />
+                    onChange={(event) => handleFormChange(event, index)}
+                  >
+                    <FormControlLabel
+                      value="crumble"
+                      control={<Radio />}
+                      label="Apple & Blackberry Crumble Served with Ice Cream or Cream"
+                    />
+                    <FormControlLabel
+                      value="Profiterole"
+                      control={<Radio />}
+                      label="Chocolate Profiterole Stack"
+                    />
+                    <FormControlLabel
+                      value="Brownie"
+                      control={<Radio />}
+                      label="Salted Caramel Brownie with Ice Cream"
+                    />
+                  </RadioGroup>
                   <TextField
                     name="songRequest"
                     placeholder="Song Request"
                     onChange={(event) => handleFormChange(event, index)}
                     value={form.songRequest}
                   />
+                  <br />
                   <TextField
                     name="dietaryRequirements"
                     placeholder="Dietary Requirements"
