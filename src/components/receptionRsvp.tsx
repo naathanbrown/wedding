@@ -9,8 +9,12 @@ import {
 import { useState } from "react";
 
 //@ts-ignore
-export const ReceptionRsvp = ({ updateDisplayMessage }) => {
-  const defaultFromFields = { fullName: "", songRequest: "" };
+export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
+  const defaultFromFields = {
+    fullName: "",
+    songRequest: "",
+    dietaryRequirements: "",
+  };
   const [formFields, setFormFields] = useState([defaultFromFields]);
 
   const handleFormChange = (event: any, index: number) => {
@@ -24,6 +28,7 @@ export const ReceptionRsvp = ({ updateDisplayMessage }) => {
     let object = {
       fullName: "",
       songRequest: "",
+      dietaryRequirements: "",
     };
 
     setFormFields([...formFields, object]);
@@ -39,6 +44,7 @@ export const ReceptionRsvp = ({ updateDisplayMessage }) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    setLoading(true);
     const templateParams = {
       guest1_name: formFields[0].fullName,
       guest_list: formFields
@@ -51,6 +57,11 @@ export const ReceptionRsvp = ({ updateDisplayMessage }) => {
           return field.songRequest;
         })
         .toString(),
+      dietary_requirements: formFields
+        .map((field) => {
+          return field.dietaryRequirements;
+        })
+        .toString(),
     };
     emailjs
       .send("service_9vpwvcw", "template_ev851q6", templateParams, {
@@ -59,10 +70,14 @@ export const ReceptionRsvp = ({ updateDisplayMessage }) => {
       .then(
         () => {
           console.log("SUCCESS!");
+          setLoading(false);
           setFormFields([defaultFromFields]);
+          updateDisplayMessage("success");
         },
         (error) => {
+          setLoading(false);
           console.log("FAILED...", error.text);
+          updateDisplayMessage("failed");
         }
       );
   };
@@ -92,6 +107,12 @@ export const ReceptionRsvp = ({ updateDisplayMessage }) => {
                     placeholder="Song Request"
                     onChange={(event) => handleFormChange(event, index)}
                     value={form.songRequest}
+                  />
+                  <TextField
+                    name="dietaryRequirements"
+                    placeholder="Dietary Requirements"
+                    onChange={(event) => handleFormChange(event, index)}
+                    value={form.dietaryRequirements}
                   />
                   <br></br>
                   <Button onClick={() => removeFields(index)}>Remove</Button>
