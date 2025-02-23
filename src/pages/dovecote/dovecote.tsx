@@ -21,18 +21,18 @@ export const Dovecote = () => {
           <div>
             <h2>Wedding Breakfast</h2>
             <p>
-              The wedding breakfast will begin from 3pm at Dovecote. There will
-              be a full 3 course meal served and a bar on site. There will be a
-              seating plan provided nearer the time.{" "}
+              You can arrive at Dovecote from 1pm. The wedding breakfast will
+              begin at 3pm. There will be a full 3 course meal served and a bar
+              on site. There will be a seating plan provided nearer the time.{" "}
             </p>
           </div>
         )}
         <h2>Reception</h2>
         <p>
           The reception will begin at 7pm. Do not arrive later than 7:30 as you
-          will miss the first dance and cake cut. The evening will have a DJ, a
-          dance floor and a bar on site to purchase drinks. There will be pizza
-          being served for guests to eat also.
+          will miss the first dance and cake cutting. The evening will have a
+          DJ, a dance floor and a bar on site to purchase drinks. There will be
+          pizza being served also.
         </p>
         <h2>Parking</h2>
         <p>

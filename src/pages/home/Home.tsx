@@ -15,11 +15,9 @@ export const Home = () => {
       <h1 id="middle-line">
         Nathan <br /> and <br /> Samantha
       </h1>
-      <h1 id="bottom-line">Invite you to celebrate their wedding</h1>
+      <h1 id="bottom-line">invite you to celebrate their wedding.</h1>
       <h1 id="bottom-line">27 September 2025</h1>
-      <h1 id="bottom-line">
-        Venue and general information available from nav bar above
-      </h1>
+      <br />
       <Link id="bottom-line-link" to={{ pathname: "/rsvp", search }}>
         Please RSVP
       </Link>

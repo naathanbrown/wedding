@@ -49,11 +49,11 @@ export const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#04913a" }}>
+    <AppBar position="static" style={{ backgroundColor: "#93ba88" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Samantha and Nathan's Wedding &#127804;
+            Samantha and Nathan's Wedding
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton

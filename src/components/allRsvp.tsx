@@ -106,26 +106,12 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
 
   return (
     <div style={{ margin: "2%" }}>
-      <h1>Menu</h1>
-      <h2>Starters</h2>
-      <ul>
-        <li>Tomato and Basil Soup with Crusty Bread (GF)</li>
-        <li>Smoked Salmon Salad (GF)</li>
-        <li>Grilled Halloumi Fries with Rocket and Sweet Chilli Sauce (GF)</li>
-      </ul>
-      <h2>Mains</h2>
-      <h3>All served with roast potatoes and seasonal vegetables</h3>
-      <ul>
-        <li>Roast Beef with Yorkshire Pudding (can be GF on req)</li>
-        <li>Herb Crusted Salmon (GF)</li>
-        <li>Vegetarian Lasagna</li>
-      </ul>
-      <h2>Desert</h2>
-      <ul>
-        <li>Apple & Blackberry Crumble Served with Ice Cream or Cream</li>
-        <li>Chocolate Profiterole Stack</li>
-        <li>Salted Caramel Brownie with Ice Cream </li>
-      </ul>
+      <h1>RSVP</h1>
+      <h4>
+        Please indicate to use if you are able to attend the wedding. Please
+        also let us know if you have a song request and any dietary
+        requirements.
+      </h4>
       <Card
         component="form"
         noValidate
