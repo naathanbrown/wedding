@@ -1,0 +1,18 @@
+#dovecote-maps {
+    width:90%;
+    height:30%;
+  }
+
+#container {
+    padding-left: 5%;
+    padding-right: 5%;
+  
+  }
+
+  @media screen and (min-width: 520px) {
+    #container {
+      padding-left: 30%;
+      padding-right: 30%;
+  
+    }
+  }

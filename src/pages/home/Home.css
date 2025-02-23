@@ -37,17 +37,6 @@
   }
 }
 
-@font-face {
-  font-family: "QT Basker";
-  src: url("../../../public/fonts/QTBasker.otf");
-}
-
-@font-face {
-  font-family: "Indiana Signature";
-  src: url("../../../public/fonts/IndianaSignatureRegular.otf");
-}
-
-
 #top-line {
   color: green;
   font-family: 'QT Basker';

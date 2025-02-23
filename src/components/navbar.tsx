@@ -16,13 +16,21 @@ import { createSearchParams, useNavigate } from "react-router";
 export const Navbar = () => {
   const navigate = useNavigate();
   const userType = localStorage.getItem("guest_type");
-  const pages = [
-    { name: "Home", path: "/" },
-    { name: "General Information", path: "/info" },
-    { name: "RSVP", path: "/rsvp" },
-    { name: "Rutland", path: "/rutland" },
-    { name: "Dovecote", path: "/dovecote" },
-  ];
+  const pages =
+    userType === "all"
+      ? [
+          { name: "Home", path: "/" },
+          { name: "General Information", path: "/info" },
+          { name: "RSVP", path: "/rsvp" },
+          { name: "Rutland", path: "/rutland" },
+          { name: "Dovecote", path: "/dovecote" },
+        ]
+      : [
+          { name: "Home", path: "/" },
+          { name: "General Information", path: "/info" },
+          { name: "RSVP", path: "/rsvp" },
+          { name: "Dovecote", path: "/dovecote" },
+        ];
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

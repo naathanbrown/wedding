@@ -83,7 +83,13 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
   };
 
   return (
-    <div style={{ margin: "10%" }}>
+    <div style={{ margin: "2%" }}>
+      <h1>Evening Food</h1>
+      <h4>
+        In the evening a selection of pizza will be available for all guests to
+        enjoy. Please indicate any dietary requirements in the form. More
+        information is on the information page.
+      </h4>
       <Card
         component="form"
         noValidate

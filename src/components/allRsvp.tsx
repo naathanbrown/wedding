@@ -105,7 +105,7 @@ export const AllRsvp = ({ updateDisplayMessage, setLoading }) => {
   };
 
   return (
-    <div style={{ margin: "10%" }}>
+    <div style={{ margin: "2%" }}>
       <h1>Menu</h1>
       <h2>Starters</h2>
       <ul>
