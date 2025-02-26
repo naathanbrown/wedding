@@ -99,8 +99,8 @@ export const ReceptionRsvp = ({ updateDisplayMessage, setLoading }) => {
     <div style={{ margin: "2%" }}>
       <h1>RSVP</h1>
       <h4>
-        Please indicate to use if you are able to attend the wedding. Please
-        also let us know if you have a song request.
+        Please indicate to us if you are able to attend the wedding. Please also
+        let us know if you have a song request.
       </h4>
       <h4>
         In the evening a selection of pizza will be available for all guests to
